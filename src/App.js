@@ -15,7 +15,10 @@ class App extends Component {
 
   handleTimeChange = (e, newTime) => {
     e.preventDefault();
-    console.log(newTime);
+    
+    this.setState({
+      time: newTime
+    });
   }
 
   render() {
@@ -28,7 +31,7 @@ class App extends Component {
         {/* Analog */}
         <Analog time={this.state.time} handleTimeChange={this.handleTimeChange} />
         {/* Digital */}
-        <Digital time={this.state.time} />
+        <Digital time={this.state.time} handleTimeChange={this.handleTimeChange}/>
 
         {/* Footer */}
       </div>

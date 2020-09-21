@@ -7,7 +7,9 @@ const Digital = props => {
   return (
     <section className="clock">
       <h2>Digital</h2>
-      <div className="digital"></div>
+      <div className="digital">
+        <p>{props.hour}:{props.minute}:{props.second}</p>
+      </div>
       <p>{props.time}</p>
 
       <Form handleTimeChange={props.handleTimeChange} />

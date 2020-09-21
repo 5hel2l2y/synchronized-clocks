@@ -9,8 +9,28 @@ class App extends Component {
     super();
 
     this.state = {
-      time: '4:34'
+      time: new Date().toLocaleTimeString(),
+      hour: new Date().getHours(),
+      minute: new Date().getMinutes(),
+      second: new Date().getSeconds(),
     };
+  }
+
+  componentDidMount() {
+    this.intervalID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString(),
+      hour: new Date().getHours(),
+      minute: new Date().getMinutes(),
+      second: new Date().getSeconds(),
+    });
   }
 
   handleTimeChange = (e, newTime) => {
@@ -31,7 +51,7 @@ class App extends Component {
         {/* Analog */}
         <Analog time={this.state.time} handleTimeChange={this.handleTimeChange} />
         {/* Digital */}
-        <Digital time={this.state.time} handleTimeChange={this.handleTimeChange}/>
+        <Digital time={this.state.time} hour={this.state.hour} minute={this.state.minute} second={this.state.second} handleTimeChange={this.handleTimeChange}/>
 
         {/* Footer */}
       </div>

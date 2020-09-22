@@ -1,3 +1,10 @@
+<!-- {/* started at 4:25 */}
+{/* pause at 5:52 */}
+{/* resume at 6:30 */} 
+completed digital side at 8:29
+-->
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,0 +1,50 @@
+.app {
+  text-align: center;
+}
+
+.clock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  margin: 5px;
+
+  .digital {
+    border: 2px dashed blue;
+    width: 100px;
+    margin: 10px;
+  }
+
+  .analog {
+    border: 2px dashed blue;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+
+    .dial {
+      position: absolute;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      transform-origin: bottom left;
+      &.seconds {
+        border-left:solid 1px green;
+      }
+      &.minutes {
+        border-left:solid 1px red;
+      }
+      &.hours {
+        width: 35px;
+        height: 35px;
+        top: 15px;
+        border-left:solid 2px black;
+      }
+    }
+  }
+}
+
+form {
+  margin: 5px;
+}

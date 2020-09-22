@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './app.css';
+import './app.scss';
 
 import Analog from './components/Analog';
 import Digital from './components/Digital';
@@ -10,7 +10,6 @@ class App extends Component {
 
     this.state = {
       set: false,
-      time: new Date().toLocaleTimeString(),
       hour: new Date().getHours(),
       minute: new Date().getMinutes(),
       second: new Date().getSeconds(),
@@ -33,14 +32,12 @@ class App extends Component {
       const live = new Date(event.getTime() + 1000);
 
       this.setState({
-        time: live.toLocaleTimeString(),
         hour: live.getHours(),
         minute: live.getMinutes(),
         second: live.getSeconds(),
       });
     } else {
       this.setState({
-        time: new Date().toLocaleTimeString(),
         hour: new Date().getHours(),
         minute: new Date().getMinutes(),
         second: new Date().getSeconds(),
@@ -64,12 +61,13 @@ class App extends Component {
       <div className="app">
         <header>
           <h1>Synchronized Clocks</h1>
+          <p>Try setting a time on the analog or digital clock.</p>
         </header>
 
         {/* Analog */}
-        <Analog time={this.state.time} handleTimeChange={this.handleTimeChange} />
+        <Analog hour={this.state.hour} minute={this.state.minute} second={this.state.second}handleTimeChange={this.handleTimeChange} />
         {/* Digital */}
-        <Digital time={this.state.time} hour={this.state.hour} minute={this.state.minute} second={this.state.second} handleTimeChange={this.handleTimeChange}/>
+        <Digital hour={this.state.hour} minute={this.state.minute} second={this.state.second} handleTimeChange={this.handleTimeChange}/>
 
         {/* Footer */}
       </div>

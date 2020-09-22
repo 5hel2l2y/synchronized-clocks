@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import '../app.css';
+import '../app.scss';
 
 class Form extends Component {
   constructor() {
     super();
 
     this.state = {
-      timeInput: '',
       hourInput: '',
       minuteInput: '',
       secondInput: ''

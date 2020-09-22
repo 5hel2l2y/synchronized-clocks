@@ -9,6 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
+      set: false,
       time: new Date().toLocaleTimeString(),
       hour: new Date().getHours(),
       minute: new Date().getMinutes(),
@@ -24,20 +25,37 @@ class App extends Component {
     clearInterval(this.intervalID);
   }
 
-  tick() {
-    this.setState({
-      time: new Date().toLocaleTimeString(),
-      hour: new Date().getHours(),
-      minute: new Date().getMinutes(),
-      second: new Date().getSeconds(),
-    });
+  tick = () => {
+    if(this.state.set) {
+      const event = new Date();
+      event.setHours(this.state.hour, this.state.minute, this.state.second);
+      
+      const live = new Date(event.getTime() + 1000);
+
+      this.setState({
+        time: live.toLocaleTimeString(),
+        hour: live.getHours(),
+        minute: live.getMinutes(),
+        second: live.getSeconds(),
+      });
+    } else {
+      this.setState({
+        time: new Date().toLocaleTimeString(),
+        hour: new Date().getHours(),
+        minute: new Date().getMinutes(),
+        second: new Date().getSeconds(),
+      });
+    }
   }
 
   handleTimeChange = (e, newTime) => {
     e.preventDefault();
     
     this.setState({
-      time: newTime
+      set: true,
+      hour: newTime.hourInput,
+      minute: newTime.minuteInput,
+      second: newTime.secondInput
     });
   }
 

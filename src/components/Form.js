@@ -6,21 +6,28 @@ class Form extends Component {
     super();
 
     this.state = {
-      timeInput: ''
+      timeInput: '',
+      hourInput: '',
+      minuteInput: '',
+      secondInput: ''
     };
   }
 
   handleChange = (e) => {
     this.setState({
-      timeInput: e.target.value
+      [e.target.id]: e.target.value,
     });
   }
 
   render() {
     return (
-      <form onSubmit={e => this.props.handleTimeChange(e, this.state.timeInput)}>
-        <label htmlFor="newTime">Enter new time</label>
-        <input type="text" id="newTime" onChange={this.handleChange} />
+      <form onSubmit={e => this.props.handleTimeChange(e, this.state)}>
+        <div>
+          <label htmlFor="hourInput">Hour</label>:
+          <label htmlFor="minuteInput">Minute</label>:
+          <label htmlFor="secondInput">Second</label>
+          <input type="number" id="hourInput" min="0" max="23" onChange={this.handleChange} />:<input type="number" id="minuteInput" min="0" max="59" onChange={this.handleChange} />:<input type="number" id="secondInput" min="0" max="59" onChange={this.handleChange} />
+        </div>
         <button>Change Time</button>
       </form>
     );

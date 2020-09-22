@@ -10,6 +10,7 @@ const Digital = props => {
       <div className="digital">
         <p>{props.hour}:{props.minute}:{props.second}</p>
       </div>
+      <p>{props.time}</p>
 
       <Form handleTimeChange={props.handleTimeChange} />
     </section>

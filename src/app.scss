@@ -1,5 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .app {
   text-align: center;
+}
+
+.container {
+  min-height: calc(100vh - 70px);
 }
 
 .clock {
@@ -13,7 +22,7 @@
   .digital {
     border: 2px dashed blue;
     width: 100px;
-    margin: 10px;
+    margin: 5px;
   }
 
   .analog {
@@ -22,6 +31,7 @@
     height: 100px;
     border-radius: 50%;
     position: relative;
+    margin: 5px;
 
     .dial {
       position: absolute;
@@ -47,4 +57,9 @@
 
 form {
   margin: 5px;
+}
+
+footer {
+  height: 50px;
+
 }

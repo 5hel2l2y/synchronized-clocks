@@ -59,17 +59,19 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header>
-          <h1>Synchronized Clocks</h1>
-          <p>Try setting a time on the analog or digital clock.</p>
-        </header>
+        <div className="container">
+          <header>
+            <h1>Synchronized Clocks</h1>
+            <p>Try setting a time on the analog or digital clock.</p>
+          </header>
 
-        {/* Analog */}
-        <Analog hour={this.state.hour} minute={this.state.minute} second={this.state.second}handleTimeChange={this.handleTimeChange} />
-        {/* Digital */}
-        <Digital hour={this.state.hour} minute={this.state.minute} second={this.state.second} handleTimeChange={this.handleTimeChange}/>
+          <Analog hour={this.state.hour} minute={this.state.minute} second={this.state.second}handleTimeChange={this.handleTimeChange} />
+          <Digital hour={this.state.hour} minute={this.state.minute} second={this.state.second} handleTimeChange={this.handleTimeChange}/>
+        </div>
 
-        {/* Footer */}
+        <footer>
+          © <a href="http://https://5hel2l2y.github.io/" target="_blank" rel="noopener noreferrer">Sherry Yang</a>
+        </footer>
       </div>
     );
   }
